@@ -1,4 +1,4 @@
-FROM flat-docker-phoenix
+FROM flat-alpine-phoenix
 
 ADD app /usr/src/app
 WORKDIR /usr/src/app

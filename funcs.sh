@@ -12,7 +12,7 @@ function build() {
 
 function slim() {
 	#FIXME: export/import removes metadata (CMD, ENTRYPOINT, ENV etc)
-	CONTAINER_ID=$(docker run -d $IMAGE_NAME /bin/bash)
+	CONTAINER_ID=$(docker run -d $IMAGE_NAME /bin/sh)
 	docker export -o "$CONTAINER_ID" $CONTAINER_ID
 	docker import "$CONTAINER_ID" flat-$IMAGE_NAME
 	rm "$CONTAINER_ID"
@@ -29,9 +29,5 @@ function main() {
 	fi
 
 	IMAGE_NAME=$1
-	build
-	slim
-	remove_stale_images
+	build && slim && remove_stale_images
 }
-
-main

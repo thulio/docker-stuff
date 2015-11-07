@@ -1,6 +1,6 @@
-FROM alpine:latest
+FROM alpine:edge
 
-ENV PASSENGER=passenger-5.0.18 \
+ENV PASSENGER=passenger-5.0.21 \
     PATH="/passenger/bin:$PATH"
 
 # install build deps
